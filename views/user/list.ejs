@@ -1,0 +1,66 @@
+<!--
+including header content which is common for all pages
+-->
+<%- include ../layouts/header.ejs %>    
+ 
+<section class="inner-form">
+<div class="container">
+<div class="col-md-offset-2 col-md-8"> 
+<% if (messages.error) { %>
+    <div class="alert alert-danger alert-dismissable"><%- messages.error %></div>
+<% } %>
+ 
+<% if (messages.success) { %>
+    <div class="alert alert-success alert-dismissable"><%- messages.success %></div>
+<% } %>
+
+<div class="form-div">
+<% if(data == '') { %>
+<div><h4>No Records to Display</h4></div>
+<% } 
+else
+{
+%>
+<table class="table table-striped">
+ 
+    <tr style='text-align:left; background-color:#3260DB; color: #fff;'>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Middle Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th width="20%">Action</th>
+    </tr>
+
+    <% if (data) { %>
+    <% data.forEach(function(user){ %>
+        <tr>
+            <td><%= user.firstname %></td>
+            <td><%= user.lastname %></td>
+            <td><%= user.middlename %></td>
+            <td><%= user.email %></td>
+            <td><%= user.phone %></td>
+            <td>
+                <div style="float:left">
+                    <a href='/users/edit/<%= user.id %>' class='btn btn-primary'>Edit</a> &nbsp;                            
+                    <form method="post" action="/users/delete/<%= user.id %>" style="float:right">
+                        <input type="submit" name="delete" value='Delete' onClick="return confirm('Are you sure you want to delete?')" class='btn btn-danger' />
+                        <input type="hidden" name="_method" value="DELETE" />
+                    </form>
+                </div>
+            </td>
+        </tr>
+    <% }) %>
+    <% } %>
+ 
+</table>
+<% } %>
+</div>
+
+</div>
+</div>
+</section> 
+<!--
+including footer content which is common for all pages
+-->
+<%- include ../layouts/footer.ejs %>   

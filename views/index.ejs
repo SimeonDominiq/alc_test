@@ -1,0 +1,46 @@
+<!--
+including header content which is common for all pages
+-->
+<%- include layouts/header.ejs %> 
+
+<section class="icon-home">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 wow fadeInLeft">
+				<div class="icons">
+					<a href="Javascript:void(0)">
+					<div><i class="fa fa-user"></i></div>
+					<h3>2,000</h3>
+					<h6>Registered Students</h6>
+					</a>
+				</div>
+			</div>
+
+			<div class="col-lg-4 wow fadeInUp">
+				<div class="icons">
+					<a href="/users/add">
+					<div><i class="fa fa-user-plus"></i></div>
+					<h3>New Registration</h3>
+					<h6>Add new Student</h6>
+					</a>
+				</div>
+			</div>
+
+			<div class="col-lg-4 wow fadeInRight">
+				<div class="icons">
+					<a href="/users">
+					<div><i class="fa fa-list-alt"></i></div>
+					<h3>Edit/Delete</h3>
+					<h6>Edit/Delete Student</h6>
+					</a>
+				</div>				
+			</div>
+									
+		</div>
+	</div>
+</section>
+
+<!--
+including footer content which is common for all pages
+-->
+<%- include layouts/footer.ejs %>
